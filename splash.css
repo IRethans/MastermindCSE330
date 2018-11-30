@@ -11,3 +11,14 @@ body
     background-size: cover;
     background-position: center;
 }
+
+ 
+.balls ul > :first-child
+{
+    float: left;
+}
+
+.balls ul > :last-child
+{
+    float: right;
+}
