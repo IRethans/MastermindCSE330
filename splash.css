@@ -12,7 +12,16 @@ body
     background-position: center;
 }
 
- 
+.bottums ul
+{
+    display: inline-block;
+}
+
+.bottums ul li
+{
+    float: right;
+}
+
 .balls ul > :first-child
 {
     float: left;
