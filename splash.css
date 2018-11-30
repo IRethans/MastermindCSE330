@@ -23,13 +23,13 @@ body
     float: right;
 }
 
-.balls.ul li
+.balls ul li
 {
     display: inline-block
 }
 
 .balls ul li img
 {
-    width: 10px;
+    width: 30px;
     height: auto; 
 }
