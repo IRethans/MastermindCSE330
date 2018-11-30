@@ -22,3 +22,14 @@ body
 {
     float: right;
 }
+
+.balls.ul li
+{
+    display: inline-block
+}
+
+.balls.ul li img
+{
+    width: 10px;
+    height: auto; 
+}
