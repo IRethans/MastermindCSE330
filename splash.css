@@ -28,7 +28,7 @@ body
     display: inline-block
 }
 
-.balls.ul li img
+.balls ul li img
 {
     width: 10px;
     height: auto; 
