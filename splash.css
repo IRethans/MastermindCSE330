@@ -26,8 +26,10 @@ body
 
 .bottums li img
 {
-    width: 40px;
+    width: 35px;
     height: auto;
+    text-decoration: none;
+    padding: 5px
 }
 
 .balls ul > :first-child
