@@ -23,7 +23,7 @@ body
     float: right;
 }
 
-.balls ul li
+.balls ul li ul
 {
     display: inline-block
 }
