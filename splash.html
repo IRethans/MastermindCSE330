@@ -1,67 +1,80 @@
-*
-{
-    margin:0;
-    padding:0;
-}
+<!DOCTYPE html>
+<html>
 
-body
-{
-    background-image: url(achtergrond.jpeg);
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-}
-
-ul
-{
-list-style: none;
-}
-
-.bottums ul
-{
-    float: right;
-    margin-top: 10px;
-}
-
-.bottums ul li
-{
-    display: inline-block;   
-}
-
-.bottums li img
-{
-    width: 35px;
-    height: auto;
-    text-decoration: none;
-    padding: 5px
-}
-
-.balls-logo
-{
-    clear:both;
-}
+<head>
+    <title>Mastermind splashscreen</title>
+    <link href="splash.css" rel="stylesheet" type="text/css">
+</head>
 
 
-.balls-logo ul > :first-child
-{
-    clear:both;
-    float: left;
-}
+<body>
+        <div class="bottums">
+                <ul class="bottums-list">
+                    <li><a href=""><img src="instructies.png"></a></li>
+                    <li><a href=""><img src="geluid.png"> </a></li>
+                </ul>
+            </div>
+            
+    <div class="splash-image">
+        
+        <div class="balls-logo">
+            <ul class="line1">
+                <li class="wit">
+                    <img src="wit.png">
+                </li>
+                <li class="rood">
+                    <img src="rood.png">
+                </li>
 
-.balls-logo ul > :last-child
-{
-    float: right;
-}
+            </ul>
 
-.balls-logo ul li img
-{
-    width: 30px;
-    height: auto; 
-}
 
-.logo img
-{
-    
-    width:350px;
-    height: auto;
-}
+
+            <ul class="line2">
+                <li class="lichtblauw">
+                    <img src="lichtblauw.png">
+                </li>
+                <li class="paars">
+                    <img src="paars.png">
+                </li>
+            </ul>
+
+
+
+            <ul class="line3">
+                <li class="donnkerblauw">
+                    <img src="donkerblauw.png">
+                </li>
+                <li class="play">
+                    <a href="" class="btn">Play</a>
+                </li>
+                <li class="roze">
+                    <img src="roze.png">
+                </li>
+
+            </ul>
+
+
+            <div class="logo">
+                <img src="logo.png">
+            </div>
+        </div>
+
+
+        <div class="title">
+            <h1>Mastermind</h1>
+        </div>
+
+        <div>
+            <ul class="statistics">
+                <li>Players online:</li>
+                <li>Ongoing games:</li>
+                <li>Games played:</li>
+            </ul>
+        </div>
+
+
+
+</body>
+
+</html>
