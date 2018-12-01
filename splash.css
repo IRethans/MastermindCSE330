@@ -12,16 +12,28 @@ body
     background-position: center;
 }
 
+ul
+{
+list-style: none;
+}
+
+.splash-image
+{
+    float:right;
+    position:relative;
+    left:-50%
+}
+
 .bottums ul
 {
     float: right;
     list-style: none;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
-.bottums li
+.bottums ul li
 {
-    display: inline-block;   
+    display: inline;   
 }
 
 .bottums li img
@@ -32,12 +44,12 @@ body
     padding: 5px
 }
 
-.balls ul > :first-child
+.balls-logo ul > :first-child
 {
     float: left;
 }
 
-.balls ul > :last-child
+.balls-logo ul > :last-child
 {
     float: right;
 }
@@ -47,8 +59,19 @@ body
     display: inline-block
 }
 
-.balls ul li img
+.balls-logo ul li img
 {
     width: 30px;
     height: auto; 
+}
+
+.logo
+{
+    float;
+}
+
+.logo img
+{
+    width:350px;
+    height: auto;
 }
