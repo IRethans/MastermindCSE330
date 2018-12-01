@@ -1,80 +1,67 @@
-<!DOCTYPE html>
-<html>
+*
+{
+    margin:0;
+    padding:0;
+}
 
-<head>
-    <title>Mastermind splashscreen</title>
-    <link href="splash.css" rel="stylesheet" type="text/css">
-</head>
+body
+{
+    background-image: url(achtergrond.jpeg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
 
+ul
+{
+list-style: none;
+}
 
-<body>
-    <div class="bottums">
-        <ul class="bottums-list">
-            <li><a href=""><img src="instructies.png"></a></li>
-            <li><a href=""><img src="geluid.png"> </a></li>
-        </ul>
-    </div>
+.bottums ul
+{
+    float: right;
+    margin-top: 10px;
+}
 
-    <div class="splash-image">
+.bottums ul li
+{
+    display: inline-block;   
+}
 
-        <div class="balls-logo">
-            <ul class="line1">
-                <li class="wit">
-                    <img src="wit.png">
-                </li>
-                <li class="rood">
-                    <img src="rood.png">
-                </li>
+.bottums li img
+{
+    width: 35px;
+    height: auto;
+    text-decoration: none;
+    padding: 5px
+}
 
-            </ul>
-
-
-
-            <ul class="line2">
-                <li class="lichtblauw">
-                    <img src="lichtblauw.png">
-                </li>
-                <li class="paars">
-                    <img src="paars.png">
-                </li>
-            </ul>
-
-
-
-            <ul class="line3">
-                <li class="donnkerblauw">
-                    <img src="donkerblauw.png">
-                </li>
-                <li class="play">
-                    <a href="" class="btn">Play</a>
-                </li>
-                <li class="roze">
-                    <img src="roze.png">
-                </li>
-
-            </ul>
+.balls-logo
+{
+    clear:both;
+}
 
 
-            <div class="logo">
-                <img src="logo.png">
-            </div>
-        </div>
+.balls-logo ul > :first-child
+{
+    clear:both;
+    float: left;
+}
 
+.balls-logo ul > :last-child
+{
+    float: right;
+}
 
-        <div class="title">
-            <h1>Mastermind</h1>
-        </div>
+.balls-logo ul li img
+{
+    width: 30px;
+    height: auto; 
+}
 
-        <div>
-            <ul class="statistics">
-                <li>Players online:</li>
-                <li>Ongoing games:</li>
-                <li>Games played:</li>
-            </ul>
-        </div>
-
-
-
-</body>
-
-</html>
+.logo img
+{
+    
+    width:350px;
+    height: auto;
+}
