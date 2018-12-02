@@ -95,6 +95,8 @@ ul.statistics
     padding:10px;
     font-family: "Candara";
     font-size: 20px;
+    border-bottom: 1.5px solid white;
+    border-top:1.5px solid white;
 }
 
 a.p
