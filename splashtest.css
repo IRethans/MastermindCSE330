@@ -44,12 +44,13 @@ list-style: none;
 
 .logo img
 {
-    float:left;
-    position:relative;
-    right:-17.8%;
-    width:350px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:600px;
     height: auto;
 }
+
 
 .btn
 {
