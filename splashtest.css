@@ -51,13 +51,27 @@ list-style: none;
     height: auto;
 }
 
+.play
+{
+    text-align:center;
+    position:relative;
+    top: -45px;
+    right:-10px;
+  
+  position: relative;
+  z-index: 1000;
+}
 
 .btn
 {
     color:white;
-    float:left;
-    position:relative;
-    left:50%;
+    border: 1.5px solid white;
+    padding:7px 60px;
+    text-decoration: none;
+    font-family: "Candara";
+    font-size: 25px;
+    
+   
 }
 
 .title
