@@ -37,42 +37,10 @@ list-style: none;
     padding: 5px
 }
 
-.balls-logo
+.splash-image
 {
     clear:both;
 }
-
-.balls-logo ul
-{
-    margin: 100px;
-
-}
-
-.balls-logo ul > :first-child
-{
-    clear:both;
-    float: left;
-}
-
-.balls-logo ul > :last-child
-{
-    float: right;
-}
-
-.balls-logo ul li img
-{
-    width: 30px;
-    height: auto; 
-}
-
-.btn
-{
-    color:white;
-    float:left;
-    position:relative;
-    left:50%;
-}
-
 
 .logo img
 {
@@ -81,6 +49,14 @@ list-style: none;
     right:-17.8%;
     width:350px;
     height: auto;
+}
+
+.btn
+{
+    color:white;
+    float:left;
+    position:relative;
+    left:50%;
 }
 
 .title
