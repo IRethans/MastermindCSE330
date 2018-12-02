@@ -83,7 +83,7 @@ list-style: none;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top:20px;
+    margin-top:40px;
     width:600px;
     height: auto; 
     
@@ -97,6 +97,7 @@ ul.statistics
     font-size: 20px;
     border-bottom: 1.5px solid white;
     border-top:1.5px solid white;
+    margin-top:40px;
 }
 
 a.p
