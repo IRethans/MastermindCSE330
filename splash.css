@@ -4,12 +4,17 @@
     padding:0;
 }
 
+body, html {
+    height: 100%;
+    width:100%;
+}
+
 body
 {
     background-image: url(achtergrond.jpeg);
-    height: 100vh;
-    background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
+    overflow: hidden;
 }
 
 ul
@@ -37,53 +42,73 @@ list-style: none;
     padding: 5px
 }
 
-.balls-logo
+.splash-image
 {
     clear:both;
 }
 
-.balls-logo ul
+.logo img
 {
-    margin: 100px;
-
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:600px;
+    height: auto;
 }
 
-.balls-logo ul > :first-child
+.play
 {
-    clear:both;
-    float: left;
-}
-
-.balls-logo ul > :last-child
-{
-    float: right;
-}
-
-.balls-logo ul li img
-{
-    width: 30px;
-    height: auto; 
+    text-align:center;
+    position:relative;
+    top: -35px;
+    right:-10px;
+    position: relative;
+    z-index: 1000;
 }
 
 .btn
 {
     color:white;
-    float:left;
-    position:relative;
-    left:50%;
+    border: 1.5px solid white;
+    padding:7px 60px;
+    text-decoration: none;
+    font-family: "Candara";
+    font-size: 25px;
+    
+   
 }
 
+.title img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:40px;
+    width:600px;
+    height: auto; 
+    
+}
 
-.logo img
+ul.statistics 
+{
+    color:white;
+    padding:10px;
+    font-family: "Candara";
+    font-size: 20px;
+    border-bottom: 1.5px solid white;
+    border-top:1.5px solid white;
+    margin-top:40px;
+}
+
+a.p
 {
     float:left;
-    position:relative;
-    right:-17.8%;
-    width:350px;
-    height: auto;
 }
 
-.title
+a.g
 {
-    clear:both;
+    float:right;
+    padding: 0px 50px;
+
 }
+
