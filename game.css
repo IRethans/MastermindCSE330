@@ -25,17 +25,45 @@ list-style: none;
 .playfield
 {
     padding:0px 10px;
+    position:relative;
+    top:30px;
+    width:350px 
 }
+
 .playfield img
 {
     width: 45px;
     height: auto;
 }
 
+.playfield ul li
+{
+    display:inline-block;
+ 
+}
+
+.playfield ul li#A
+{
+    margin-left:50px
+}
+
+.playfield ul li#D
+{
+    padding-right:50px
+}
+
+.playfield ul li#check
+{
+    position:relative;
+    right:-5px;
+}
+
 .playfield ul 
 {
     border-top:1.5px solid white;
+
 }
+
 
 .playfield ul li#check ul:last-child
 {
@@ -47,26 +75,17 @@ list-style: none;
     border-right:1.5px solid white;
 }
 
-.playfield ul li
-{
-    display:inline-block;
- 
-}
-
 section#leftboard.playfield
 {
     float: left;
-    position:relative;
     right:-30px;
-    top:30px;
+    
 }
 
 section#rightboard.playfield
 {
     float: right;
-    position:relative;
-    right:30px;
-    top:30px;
+    right: 30px;   
 }
 
 ul#check-grid li ul li img
@@ -106,7 +125,8 @@ section#cl.cb
     clear:both;
     float: left;
     position:relative;
-    right:-15px;
+    right:-41px;
+    top: 50px;
     
     
 }
@@ -115,7 +135,8 @@ section#cr.cb
 {
     float: right;
     position:relative;
-    right:25px;
+    right:98px;
+    top: 50px;
    
 }
 
@@ -167,12 +188,16 @@ ul.statistics li:last-child
 
 .buttons ul li:last-child
 {
-  float:right
+  float:right;
+  position:relative;
+  right: 50px;
 }
 
 .buttons ul li:first-child
 {
-    float: left;
+  float: left;
+  position:relative;
+  right: -50px;
 
 }
 
