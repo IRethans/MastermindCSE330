@@ -103,10 +103,11 @@ ul#check-grid li#check2 ul li img
 
 section#cl.cb
 {
+    clear:both;
     float: left;
     position:relative;
     right:-15px;
-    top:50px;
+    
     
 }
 
@@ -115,7 +116,7 @@ section#cr.cb
     float: right;
     position:relative;
     right:25px;
-    top:50px;
+   
 }
 
 
@@ -164,16 +165,20 @@ ul.statistics li:last-child
     border-bottom: 1.5px solid white;
 }
 
-.buttons ul
+.buttons ul li:last-child
 {
-    float: right;
-    margin-top: 10px;
-    margin-right:10px;
+  float:right
 }
 
-.buttons ul li
+.buttons ul li:first-child
 {
-    display: inline-block;   
+    float: left;
+
+}
+
+.buttons li
+{
+    margin-top:0px;
 }
 
 .buttons li img
@@ -182,6 +187,7 @@ ul.statistics li:last-child
     height: auto;
     text-decoration: none;
     padding: 5px
+
 }
 
 
