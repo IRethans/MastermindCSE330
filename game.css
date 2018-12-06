@@ -43,6 +43,13 @@ section#rightboard.playfield
     float: right;
 }
 
+ul#check-grid li img
+{
+    width:30px;
+    margin-right:-10px;  
+}
+
+
 .logo img
 {
     display: block;
