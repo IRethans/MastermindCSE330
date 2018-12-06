@@ -95,7 +95,7 @@ ul#check-grid li#check2 ul li img
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width:600px;
+    width:400px;
     height: auto;
 }
 
@@ -119,24 +119,39 @@ ul#check-grid li#check2 ul li img
     padding: 5px
 }
 
+.cb img
+{
+    width:45px;
+}
+
 .cb ul li
 {
     display:inline-block;
  
 }
 
-section#left.cb
+
+section#cl.cb
 {
     float: left;
     position:relative;
-    right:-30px;
-    top:30px;
+    right:-15px;
+    top:50px;
+    
 }
 
-section#right.cb
+section#cr.cb
 {
     float: right;
     position:relative;
-    right:30px;
-    top:30px;
+    right:25px;
+    top:50px;
+}
+
+ul.statistics 
+{
+    color:white;
+    padding:10px;
+    font-family: "Candara";
+    font-size: 20px;
 }
