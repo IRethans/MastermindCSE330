@@ -1,0 +1,59 @@
+*
+{
+    margin:0;
+    padding:0;
+}
+
+body, html {
+    height: 100%;
+    width:100%;
+}
+
+body
+{
+    background-image: url(achtergrond.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+}
+
+ul
+{
+list-style: none;
+}
+
+.playfield img
+{
+    width: 10px;
+    height: auto;
+}
+
+#leftboard
+{
+    float: left;
+}
+
+#rigthboard
+{
+    float: right;
+}
+
+.buttons ul
+{
+    float: right;
+    margin-top: 10px;
+    margin-right:10px;
+}
+
+.buttons ul li
+{
+    display: inline-block;   
+}
+
+.buttons li img
+{
+    width: 35px;
+    height: auto;
+    text-decoration: none;
+    padding: 5px
+}
