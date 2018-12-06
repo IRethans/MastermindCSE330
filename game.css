@@ -28,7 +28,7 @@ list-style: none;
     height: auto;
 }
 
-.playfield ul
+.playfield ul li
 {
     display:inline-block;
 }
