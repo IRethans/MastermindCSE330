@@ -1,0 +1,14 @@
+1. click on a colored ball. It blurs out on the location where it was. Then if you click on the location where you want it,
+the ball is placed at that location and the blurred ball dissapears.
+2. If you click on a ball in your guessing code, it moves back to its original place (with a little animation)
+3. If you insert the last ball in the row, it immediately checks per ball: 
+	- Is this color in the correct place 
+		- Yes? --> A small black ball appears to the right of the guessed code
+		- No? --> Check the next question
+	- Is this color in the code
+		- Yes? --> A small white ball appears to the right of the guessed code
+		- No? --> Nothing appears
+3. If you click on the sound button, a no-sound button appears on its place and the sound is muted
+4. If you click on the information button, a pop-up instruction window appears.
+5. After a game is finished show the player if they won or lost and have two buttons: one for play again and another for quit.
+	

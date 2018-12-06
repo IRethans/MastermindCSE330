@@ -22,19 +22,19 @@ ul
 list-style: none;
 }
 
-.buttons ul
+.bottums ul
 {
     float: right;
     margin-top: 10px;
     margin-right:10px;
 }
 
-.buttons ul li
+.bottums ul li
 {
     display: inline-block;   
 }
 
-.buttons li img
+.bottums li img
 {
     width: 35px;
     height: auto;
