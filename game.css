@@ -43,10 +43,16 @@ section#rightboard.playfield
     float: right;
 }
 
-ul#check-grid li img
+.check-grid ul li ul li
+{
+display:inline-block;
+}
+
+ul#check-grid li#check1 ul li img
 {
     width:30px;
     margin-right:-10px;  
+    display:inline-block;
 }
 
 
