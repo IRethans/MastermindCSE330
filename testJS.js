@@ -1,3 +1,6 @@
+https://searchcode.com/codesearch/view/68566957/
+https://codepen.io/yaylenny/pen/pJMepR
+
 function makeCode() {
     colors = ['red', 'green', 'yellow', 'blue', 'white', 'black']
     colorcode = [];
