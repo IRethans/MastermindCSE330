@@ -22,36 +22,58 @@ ul
 list-style: none;
 }
 
+.playfield
+{
+    padding:0px 10px;
+}
 .playfield img
 {
     width: 45px;
     height: auto;
 }
 
+.playfield ul 
+{
+    border-top:1.5px solid white;
+}
+
+.playfield ul li#check ul:last-child
+{
+    border-top: 0px;
+}
+
+.playfield ul li:nth-child(4)
+{
+    border-right:1.5px solid white;
+}
+
 .playfield ul li
 {
     display:inline-block;
+ 
 }
 
 section#leftboard.playfield
 {
     float: left;
+    position:relative;
+    right:-30px;
+    top:30px;
 }
 
 section#rightboard.playfield
 {
     float: right;
-}
-
-.check-grid ul li ul li
-{
-display:inline-block;
+    position:relative;
+    right:30px;
+    top:30px;
 }
 
 ul#check-grid li ul li img
 {
     width:20px;
-    margin-right:-10px;  
+    margin-right:-10px;
+      
 }
 
 ul#check-grid li#check1 ul li img
