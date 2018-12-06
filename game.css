@@ -24,16 +24,21 @@ list-style: none;
 
 .playfield img
 {
-    width: 10px;
+    width: 30px;
     height: auto;
 }
 
-#leftboard
+.playfield ul
+{
+    display:inline-block;
+}
+
+section#leftboard.playfield
 {
     float: left;
 }
 
-#rigthboard
+section#rightboard.playfield
 {
     float: right;
 }
