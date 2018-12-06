@@ -1,0 +1,157 @@
+*
+{
+    margin:0;
+    padding:0;
+}
+
+body, html {
+    height: 100%;
+    width:100%;
+}
+
+body
+{
+    background-image: url(achtergrond.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+}
+
+ul
+{
+list-style: none;
+}
+
+.playfield
+{
+    padding:0px 10px;
+}
+.playfield img
+{
+    width: 45px;
+    height: auto;
+}
+
+.playfield ul 
+{
+    border-top:1.5px solid white;
+}
+
+.playfield ul li#check ul:last-child
+{
+    border-top: 0px;
+}
+
+.playfield ul li:nth-child(4)
+{
+    border-right:1.5px solid white;
+}
+
+.playfield ul li
+{
+    display:inline-block;
+ 
+}
+
+section#leftboard.playfield
+{
+    float: left;
+    position:relative;
+    right:-30px;
+    top:30px;
+}
+
+section#rightboard.playfield
+{
+    float: right;
+    position:relative;
+    right:30px;
+    top:30px;
+}
+
+ul#check-grid li ul li img
+{
+    width:20px;
+    margin-right:-10px;
+      
+}
+
+ul#check-grid li#check1 ul li img
+{
+    position:relative;
+    top:-18px
+}
+
+ul#check-grid li#check2 ul li img
+{
+    position:relative;
+    right:28px;
+    top: -4px;
+}
+
+
+.logo img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:400px;
+    height: auto;
+}
+
+.buttons ul
+{
+    float: right;
+    margin-top: 10px;
+    margin-right:10px;
+}
+
+.buttons ul li
+{
+    display: inline-block;   
+}
+
+.buttons li img
+{
+    width: 35px;
+    height: auto;
+    text-decoration: none;
+    padding: 5px
+}
+
+.cb img
+{
+    width:45px;
+}
+
+.cb ul li
+{
+    display:inline-block;
+ 
+}
+
+
+section#cl.cb
+{
+    float: left;
+    position:relative;
+    right:-15px;
+    top:50px;
+    
+}
+
+section#cr.cb
+{
+    float: right;
+    position:relative;
+    right:25px;
+    top:50px;
+}
+
+ul.statistics 
+{
+    color:white;
+    padding:10px;
+    font-family: "Candara";
+    font-size: 20px;
+}

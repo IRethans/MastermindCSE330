@@ -100,15 +100,19 @@ ul.statistics
     margin-top:40px;
 }
 
-a.p
+li#p
 {
     float:left;
 }
 
-a.g
+li#g
 {
     float:right;
-    padding: 0px 50px;
 
+}
+
+ul.statistics li
+{
+    display:inline-block;
 }
 
