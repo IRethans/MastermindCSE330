@@ -89,36 +89,6 @@ ul#check-grid li#check2 ul li img
     top: -4px;
 }
 
-
-.logo img
-{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width:400px;
-    height: auto;
-}
-
-.buttons ul
-{
-    float: right;
-    margin-top: 10px;
-    margin-right:10px;
-}
-
-.buttons ul li
-{
-    display: inline-block;   
-}
-
-.buttons li img
-{
-    width: 35px;
-    height: auto;
-    text-decoration: none;
-    padding: 5px
-}
-
 .cb img
 {
     width:45px;
@@ -148,10 +118,71 @@ section#cr.cb
     top:50px;
 }
 
+
+
+.logo img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:300px;
+    height: auto;
+    position:relative;
+    top:50px;
+
+}
+
 ul.statistics 
 {
     color:white;
     padding:10px;
     font-family: "Candara";
     font-size: 20px;
+    text-align:left;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:300px;
+    height: auto;
 }
+
+ul.statistics li
+{
+    padding: 15px 55px;
+}
+
+ul.statistics li:first-child
+{
+    margin-top:30px;
+    border-top: 1.5px solid white;
+    
+}
+
+ul.statistics li:last-child
+{
+    border-bottom: 1.5px solid white;
+}
+
+.buttons ul
+{
+    float: right;
+    margin-top: 10px;
+    margin-right:10px;
+}
+
+.buttons ul li
+{
+    display: inline-block;   
+}
+
+.buttons li img
+{
+    width: 35px;
+    height: auto;
+    text-decoration: none;
+    padding: 5px
+}
+
+
+
