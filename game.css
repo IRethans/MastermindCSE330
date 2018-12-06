@@ -118,3 +118,25 @@ ul#check-grid li#check2 ul li img
     text-decoration: none;
     padding: 5px
 }
+
+.cb ul li
+{
+    display:inline-block;
+ 
+}
+
+section#left.cb
+{
+    float: left;
+    position:relative;
+    right:-30px;
+    top:30px;
+}
+
+section#right.cb
+{
+    float: right;
+    position:relative;
+    right:30px;
+    top:30px;
+}
