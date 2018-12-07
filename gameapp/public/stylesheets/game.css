@@ -11,7 +11,7 @@ body, html {
 
 body
 {
-    background-image: url(achtergrond.jpeg);
+    background-image: url(images/achtergrond.jpeg);
     background-repeat: no-repeat;
     background-position: center;
     overflow: hidden;
