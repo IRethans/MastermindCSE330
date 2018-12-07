@@ -1,8 +1,10 @@
 https://searchcode.com/codesearch/view/68566957/
 https://codepen.io/yaylenny/pen/pJMepR
 
+var
+
 function makeCode() {
-    colors = ['red', 'green', 'yellow', 'blue', 'white', 'black']
+    colors = ['wit', 'lb', 'db', 'roze', 'paars', 'rood']
     colorcode = [];
 
     random = {
