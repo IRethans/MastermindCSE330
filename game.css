@@ -126,7 +126,7 @@ list-style: none;
 }
 
 
-.cl
+.cb#cl
 {
     clear:both;
     float: left;
@@ -137,7 +137,7 @@ list-style: none;
     
 }
 
-.cr
+.cb#cr
 {
     float: right;
     position:relative;
