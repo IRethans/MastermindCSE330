@@ -1,0 +1,225 @@
+*
+{
+    margin:0;
+    padding:0;
+}
+
+body, html {
+    height: 100%;
+    width:100%;
+}
+
+body
+{
+    background-image: url(achtergrond.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+}
+
+ul
+{
+list-style: none;
+}
+
+.playfield
+{
+    padding:0 10px;
+    position:relative;
+    top:30px;
+    width:350px 
+}
+
+.playfield img
+{
+    width: 45px;
+    height: auto;
+}
+
+.playfield ul li
+{
+    display:inline-block;
+ 
+}
+
+.A
+{
+    margin-left:50px
+}
+
+.D
+{
+    padding-right:50px
+}
+
+.Check
+{
+    position:relative;
+    right:-5px;
+}
+
+.playfield ul 
+{
+    border-top:1.5px solid white;
+
+}
+
+.Check ul:last-child
+{
+    border-top: 0;
+}
+
+.playfield ul li:nth-child(4)
+{
+    border-right:1.5px solid white;
+}
+
+#leftboard
+{
+    float: left;
+    right:-30px;
+    
+}
+
+#rightboard
+{
+    float: right;
+    right: 30px;   
+}
+
+.Check li ul li img
+{
+    width:20px;
+    margin-right:-10px;
+      
+}
+
+.check-grid ul li img
+{
+    position:relative;
+    top:-18px
+}
+
+.check-grid-2 ul li img
+{
+    position:relative;
+    right:28px;
+    top: -4px;
+}
+
+.cb img
+{
+    width:45px;
+}
+
+.cb img:hover
+{
+  opacity:0.5;
+  cursor: pointer;
+
+}
+
+.cb ul li
+{
+    display:inline-block;
+ 
+}
+
+
+.cb#cl
+{
+    clear:both;
+    float: left;
+    position:relative;
+    right:-41px;
+    top: 50px;
+    
+    
+}
+
+.cb#cr
+{
+    float: right;
+    position:relative;
+    right:98px;
+    top: 50px;
+   
+}
+
+
+
+.logo img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:300px;
+    height: auto;
+    position:relative;
+    top:50px;
+
+}
+
+ul.statistics 
+{
+    color:white;
+    padding:10px;
+    font-family: "Candara";
+    font-size: 20px;
+    text-align:left;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:300px;
+    height: auto;
+}
+
+ul.statistics li
+{
+    padding: 15px 55px;
+}
+
+ul.statistics li:first-child
+{
+    margin-top:30px;
+    border-top: 1.5px solid white;
+    
+}
+
+ul.statistics li:last-child
+{
+    border-bottom: 1.5px solid white;
+}
+
+.buttons ul li:last-child
+{
+  float:right;
+  position:relative;
+  right: 50px;
+}
+
+.buttons ul li:first-child
+{
+  float: left;
+  position:relative;
+  right: -50px;
+
+}
+
+.buttons li
+{
+    margin-top:0;
+}
+
+.buttons li img
+{
+    width: 35px;
+    height: auto;
+    text-decoration: none;
+    padding: 5px
+
+}
+
+
+
