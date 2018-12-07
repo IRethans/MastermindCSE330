@@ -6,23 +6,15 @@ $(".cb img").on("click", function (event) {
 });
 
 
+var abcd = ["A", "B", "C", "D"];
 
-$(".A").on("click", function (event) {
-    currentid = $(this).attr('id');
-    document.getElementById(currentid).innerHTML = "<img src = 'images/game-ball.png'>";
-});
-$(".B").on("click", function (event) {
-    currentid = $(this).attr('id');
-    document.getElementById(currentid).innerHTML = "<img src = 'images/game-ball.png'>";
-});
-$(".C").on("click", function (event) {
-    currentid = $(this).attr('id');
-    document.getElementById(currentid).innerHTML = "<img src = 'images/game-ball.png'>";
-});
-$(".D").on("click", function (event) {
-    currentid = $(this).attr('id');
-    document.getElementById(currentid).innerHTML = "<img src = 'images/game-ball.png'>";
-});
+for (var i=0; i<abcd.length; i++){
+   var letter = "."+abcd[i];
+    $(letter).on("click", function (event) {
+        currentid = $(this).attr('id');
+        document.getElementById(currentid).innerHTML = "<img src = 'images/game-ball.png'>";
+    });
+}
 
 
 
