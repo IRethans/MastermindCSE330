@@ -1,65 +1,80 @@
-function make(){
-  
-    var colorCode1;
-    var colorCode2;
-    var colorCode3;
-    var colorCode4;
+https://searchcode.com/codesearch/view/68566957/
+https://codepen.io/yaylenny/pen/pJMepR
 
+function makeCode() {
     colors = ['red', 'green', 'yellow', 'blue', 'white', 'black']
+    colorcode = [];
 
-    randomColor: function(){
-        return colors[Math.floor(Math.random() colors.length)]
+    random = {
+        randomColor: function () {
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
     }
 
-    colorCode1 = randomColor;
-    colors = colors - colorCode1;
-    colorCode2 = randomColor;
-    colors = colors - colorCode2;
-    colorCode3 = randomColor;
-    colors = colors - colorCode3;
-    colorCode4 = randomColor;
+    for (n = 0; n < 4; n++) {
+        colorcode[n] = random.randomColor;
+        colors = colors - colorcode[n];
+    }
 
+    return colorcode;
 }
 
-function check(){
-    var color1;
-    var color2;
-    var color3;
-    var color4;
 
-    
 
-    if(color1 == colorCode1){
-        correct++;
+function check(playerColor, colorcode) {
+    for (m = 0; m < 4; m++) {
+        if (playerColor[m] == colorcode[m]) {
+            correct++;
+        }
     }
-    if(color2 == colorCode2){
-        correct++;
-    }
-    if(color3 == colorCode3){
-        correct++;
-    }
-    if(color4 == colorCode4){
-        correct++;
-    }
-    if(correct == 4){
+
+    if (correct == 4) {
         return winner;
+    } else {
+        if (playerColor[0] == colorcode[1] || playerColor[0] == colorcode[2] || playerColor[0] == colorcode[3]) {
+            almostCorrect++;
+        }
+        if (playerColor[1] == colorcode[0] || playerColor[1] == colorcode[2] || playerColor[1] == colorcode[3]) {
+            almostCorrect++;
+        }
+        if (playerColor[2] == colorcode[0] || playerColor[2] == colorcode[1] || playerColor[2] == colorcode[3]) {
+            almostCorrect++;
+        }
+        if (playerColor[3] == colorcode[0] || playerColor[3] == colorcode[1] || playerColor[3] == colorcode[2]) {
+            almostCorrect++;
+        }
     }
 
-    else{
-        if(color1 == colorCode2 || color1 == colorCode3 || color1 == colorCode4){
-            almostCorrect++;
-        }
-        if(color2 == colorCode1 || color2 == colorCode3 || color2 == colorCode4){
-            almostCorrect++;
-        }
-        if(color3 == colorCode1 || color3 == colorCode2 || color3 == colorCode4){
-            almostCorrect++;
-        }
-        if(color4 == colorCode1 || color4 == colorCode2 || color4 == colorCode3){
-            almostCorrect++;
-        }
-    }
-
-
+    return result(correct, almostCorrect);
 
 }
+
+
+
+function result(correct, almostCorrect) {
+    //draw the white and black balls
+
+    return nextAttempt();
+}
+
+
+
+function nextAttempt() {
+    if (attempts >= maxAttempts) {
+        return lost;
+    } else {
+        //move to the above row
+        createPlayerColor();
+    }
+}
+
+
+
+function createPlayerColor() {
+    playerColor = [];
+
+
+
+    return check(playerColor, colorcode);
+}
+
