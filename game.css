@@ -24,7 +24,7 @@ list-style: none;
 
 .playfield
 {
-    padding:0px 10px;
+    padding:0 10px;
     position:relative;
     top:30px;
     width:350px 
@@ -42,17 +42,17 @@ list-style: none;
  
 }
 
-.playfield ul li#A
+#A
 {
     margin-left:50px
 }
 
-.playfield ul li#D
+#D
 {
     padding-right:50px
 }
 
-.playfield ul li#check
+#check
 {
     position:relative;
     right:-5px;
@@ -64,10 +64,9 @@ list-style: none;
 
 }
 
-
-.playfield ul li#check ul:last-child
+#check ul:last-child
 {
-    border-top: 0px;
+    border-top: 0;
 }
 
 .playfield ul li:nth-child(4)
@@ -75,33 +74,33 @@ list-style: none;
     border-right:1.5px solid white;
 }
 
-section#leftboard.playfield
+#leftboard
 {
     float: left;
     right:-30px;
     
 }
 
-section#rightboard.playfield
+#rightboard
 {
     float: right;
     right: 30px;   
 }
 
-ul#check-grid li ul li img
+#check-grid li ul li img
 {
     width:20px;
     margin-right:-10px;
       
 }
 
-ul#check-grid li#check1 ul li img
+#check1 ul li img
 {
     position:relative;
     top:-18px
 }
 
-ul#check-grid li#check2 ul li img
+#check2 ul li img
 {
     position:relative;
     right:28px;
@@ -113,6 +112,13 @@ ul#check-grid li#check2 ul li img
     width:45px;
 }
 
+.cb img:hover
+{
+  opacity:0.5;
+  cursor: pointer;
+
+}
+
 .cb ul li
 {
     display:inline-block;
@@ -120,7 +126,7 @@ ul#check-grid li#check2 ul li img
 }
 
 
-section#cl.cb
+#cl
 {
     clear:both;
     float: left;
@@ -131,7 +137,7 @@ section#cl.cb
     
 }
 
-section#cr.cb
+#cr
 {
     float: right;
     position:relative;
@@ -203,7 +209,7 @@ ul.statistics li:last-child
 
 .buttons li
 {
-    margin-top:0px;
+    margin-top:0;
 }
 
 .buttons li img
