@@ -1,9 +1,22 @@
 var currentline = 1;
+var currentsrc = "";
 
-$(".cb img").on("click", function (event) {
-    currentid = $(this).attr('id');
-    document.getElementById('line6rA').innerHTML = "<img src = 'images/rood.png'>";
+$(".cb img").click(function (event) {
+    currentsrc = $(this).attr('src');
+}, function(){
+        currentid = $(this).attr('id');
+        document.getElementById(currentid).innerHTML = "<img src = '" + currentsrc + "'>";
 });
+
+function insertBall(currentsrc){
+        $(".gamefield").on("click", function (event) {
+            currentid = $(this).attr('id');
+            document.getElementById(currentid).innerHTML = "<img src = '" + currentsrc + "'>";
+        });
+       
+}
+
+insertBall(currentsrc);
 
 
 

@@ -7,6 +7,7 @@ $(".cb img").on("click", function (event) {
 
 
 
+
 $(".A").on("click", function (event) {
     currentid = $(this).attr('id');
     document.getElementById(currentid).innerHTML = "<img src = 'images/game-ball.png'>";
