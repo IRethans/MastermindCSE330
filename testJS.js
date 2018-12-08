@@ -1,8 +1,6 @@
 https://searchcode.com/codesearch/view/68566957/
 https://codepen.io/yaylenny/pen/pJMepR
 
-var
-
 function makeCode() {
     colors = ['wit', 'lb', 'db', 'roze', 'paars', 'rood']
     colorcode = [];
@@ -15,11 +13,15 @@ function makeCode() {
 
     for (n = 0; n < 4; n++) {
         colorcode[n] = random.randomColor;
-        colors = colors - colorcode[n];
+        var index_color = colors.indexOf(colorcode[n]);
+        colors = colors.splice(index_color,1);
     }
 
     return colorcode;
 }
+
+var code = makeCode();
+
 
 
 

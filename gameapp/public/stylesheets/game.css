@@ -110,9 +110,10 @@ list-style: none;
 .cb img
 {
     width:45px;
+    display: block;
 }
 
-.cb img:hover
+#left img:hover
 {
   opacity:0.5;
   cursor: pointer;
