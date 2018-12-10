@@ -1,10 +1,8 @@
 $(".cb img").on("click", function (event) {
     colorcode = makeCode();
     playerColor = ['wit', 'lb', 'db', 'roze'];
-    var correct = 0;
-    var almostCorrect = 0;
-    correct = checkCorrect(playerColor, colorcode);
-    almostCorrect = checkAlmostCorrect(playerColor, colorcode);
+    var correct = checkCorrect(playerColor, colorcode);
+    var almostCorrect = checkAlmostCorrect(playerColor, colorcode);
     alert(colorcode + " \n"+  playerColor + " \n"+ almostCorrect + " \n" + correct);
 
 });
@@ -25,7 +23,7 @@ function makeCode() {
         return colors;
     }
 
-   colorcode = shuffle(colors);
+colorcode = shuffle(colors);
 
     //colorcode = ['wit', 'lb', 'db', 'roze'];
 
@@ -49,18 +47,24 @@ function checkCorrect(playerColor, colorcode){
 function checkAlmostCorrect(playerColor, colorcode) {
     var almostCorrect = 0;
 
-        if (playerColor[0] == colorcode[1] || playerColor[0] == colorcode[2] || playerColor[0] == colorcode[3]) {
+    for(i=0; i<4; i++){
+        if(colorcode.indexOf(playerColor[i])!== -1){
             almostCorrect++;
         }
-        if (playerColor[1] == colorcode[0] || playerColor[1] == colorcode[2] || playerColor[1] == colorcode[3]) {
-            almostCorrect++;
-        }
-        if (playerColor[2] == colorcode[0] || playerColor[2] == colorcode[1] || playerColor[2] == colorcode[3]) {
-            almostCorrect++;
-        }
-        if (playerColor[3] == colorcode[0] || playerColor[3] == colorcode[1] || playerColor[3] == colorcode[2]) {
-            almostCorrect++;
-        }
+    }
+
+ //       if (playerColor[0] == colorcode[1] || playerColor[0] == colorcode[2] || playerColor[0] == colorcode[3]) {
+ //           almostCorrect++;
+ //       }
+ //       if (playerColor[1] == colorcode[0] || playerColor[1] == colorcode[2] || playerColor[1] == colorcode[3]) {
+ //           almostCorrect++;
+ //       }
+ //       if (playerColor[2] == colorcode[0] || playerColor[2] == colorcode[1] || playerColor[2] == colorcode[3]) {
+ //           almostCorrect++;
+ //       }
+ //       if (playerColor[3] == colorcode[0] || playerColor[3] == colorcode[1] || playerColor[3] == colorcode[2]) {
+ //           almostCorrect++;
+ //       }
     return almostCorrect;
 
 }

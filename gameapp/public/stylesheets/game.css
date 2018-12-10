@@ -89,6 +89,7 @@ list-style: none;
 
 .Check li ul li img
 {
+    display: none;
     width:20px;
     margin-right:-10px;
       
