@@ -7,6 +7,7 @@ $(".cb img").on("click", function (event) {
 
 });
 
+
 function makeCode() {
     colors = ['wit', 'lb', 'db', 'roze', 'paars', 'rood']
     colorcode = [];
