@@ -1,38 +1,51 @@
-https://searchcode.com/codesearch/view/68566957/
-https://codepen.io/yaylenny/pen/pJMepR
+$(".cb img").on("click", function (event) {
+    colorcode = makeCode();
+    playerColor = ['wit', 'lb', 'db', 'roze'];
+    var correct = 0;
+    var almostCorrect = 0;
+    correct = checkCorrect(playerColor, colorcode);
+    almostCorrect = checkAlmostCorrect(playerColor, colorcode);
+    alert(colorcode + " \n"+  playerColor + " \n"+ almostCorrect + " \n" + correct);
 
-var
+});
 
 function makeCode() {
     colors = ['wit', 'lb', 'db', 'roze', 'paars', 'rood']
     colorcode = [];
 
-    random = {
-        randomColor: function () {
-            return colors[Math.floor(Math.random() * colors.length)];
+
+    function shuffle(colors) {
+        var j, x, i;
+        for (i = colors.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = colors[i];
+            colors[i] = colors[j];
+            colors[j] = x;
         }
+        return colors;
     }
 
-    for (n = 0; n < 4; n++) {
-        colorcode[n] = random.randomColor;
-        colors = colors - colorcode[n];
-    }
+   colorcode = shuffle(colors);
+
+    //colorcode = ['wit', 'lb', 'db', 'roze'];
 
     return colorcode;
 }
 
 
-
-function check(playerColor, colorcode) {
+function checkCorrect(playerColor, colorcode){
+    var correct = 0;
     for (m = 0; m < 4; m++) {
         if (playerColor[m] == colorcode[m]) {
             correct++;
         }
     }
+    return correct;
+}
 
-    if (correct == 4) {
-        return winner;
-    } else {
+function checkAlmostCorrect(playerColor, colorcode) {
+    var almostCorrect = 0;
+
         if (playerColor[0] == colorcode[1] || playerColor[0] == colorcode[2] || playerColor[0] == colorcode[3]) {
             almostCorrect++;
         }
@@ -45,9 +58,7 @@ function check(playerColor, colorcode) {
         if (playerColor[3] == colorcode[0] || playerColor[3] == colorcode[1] || playerColor[3] == colorcode[2]) {
             almostCorrect++;
         }
-    }
-
-    return result(correct, almostCorrect);
+    return almostCorrect;
 
 }
 
