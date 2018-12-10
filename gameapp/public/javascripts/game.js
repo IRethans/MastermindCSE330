@@ -117,7 +117,7 @@ function check_full(){
 }
 
 function full_event(){
-    check_code();
+    var correct = check_code();
     
     for (var i=0; i<guess.length; i++){
     document.getElementById(guess[i]).style.opacity = 1;
@@ -128,24 +128,37 @@ function full_event(){
         guess[i] = "";
     }
 
+    if (correct === 4){
+        youwin();
+    }
+
     countline--;
+
+    if (countline = 0){
+        youlose();
+    }
 }
 
 function check_code(){
     var correctplace = checkCorrect();
-    var correctcolor = correctplace - checkAlmostCorrect();
+    var correctcolor = checkAlmostCorrect()-correctplace;
     var tracker = 1;
 
     for (var i=1; i<=correctplace; i++){
-        var id = "check"+countline+"."+i;
-        
+        var id = "check"+countline+"."+i+"l";
+        document.getElementById(id).firstElementChild.setAttribute("src", "images/small-black.png");
+        document.getElementById(id).firstElementChild.style.display = "block";
+        tracker++;
     }
 
+    for (var n=0; n<correctcolor; n++){
+        var id2 = "check"+countline+"."+tracker+"l";
+        document.getElementById(id2).firstElementChild.setAttribute("src", "images/small-white.png");
+        document.getElementById(id2).firstElementChild.style.display = "block";
+        tracker++;
+    }
 
-    console.log(checkCorrect());
-    console.log(checkAlmostCorrect());
-    console.log(guess);
-    console.log(code);
+    return correctplace;
 }
 
 
@@ -169,4 +182,12 @@ function checkAlmostCorrect() {
         }
     }
     return almostCorrect;
+}
+
+function youwin(){
+    alert("you win!");
+}
+
+function youlose(){
+    alert("you lose");
 }
