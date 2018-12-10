@@ -118,6 +118,8 @@ function check_full(){
 
 function full_event(){
     var correct = check_code();
+
+    console.log(code);
     
     for (var i=0; i<guess.length; i++){
     document.getElementById(guess[i]).style.opacity = 1;
@@ -129,13 +131,13 @@ function full_event(){
     }
 
     if (correct === 4){
-        youwin();
+        win_lose("won");
     }
 
     countline--;
 
-    if (countline = 0){
-        youlose();
+    if (countline === 0 ){
+        win_lose("lost");
     }
 }
 
@@ -184,10 +186,9 @@ function checkAlmostCorrect() {
     return almostCorrect;
 }
 
-function youwin(){
-    alert("you win!");
-}
 
-function youlose(){
-    alert("you lose");
+function win_lose(win_lose){
+    document.getElementById("text").innerHTML = "You " + win_lose;
+    var loseScreen = document.getElementById('loseScreen');
+    loseScreen.style.display = "block";
 }
