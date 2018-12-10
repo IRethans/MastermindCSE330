@@ -32,6 +32,9 @@ function makeCode() {
     return colorcode;
 }
 
+var code = makeCode();
+
+
 
 function checkCorrect(playerColor, colorcode){
     var correct = 0;
