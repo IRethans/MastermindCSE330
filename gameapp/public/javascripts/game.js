@@ -41,6 +41,8 @@ $(".cb img").on("click", function (event) {
     document.getElementById(cb_id).style.opacity = 0.5;
 });
 
+
+
  var abcd = ["A", "B", "C", "D"];
 
 for (var i = 0; i < abcd.length; i++) {
@@ -192,3 +194,4 @@ function win_lose(win_lose){
     var loseScreen = document.getElementById('loseScreen');
     loseScreen.style.display = "block";
 }
+

@@ -261,7 +261,7 @@ ul.statistics li:last-child
     
 }
 
-.menu
+.button
 {
     color:black;
     border: 1.5px solid black;
@@ -273,19 +273,8 @@ ul.statistics li:last-child
 
 }
 
-.replay
-{
-    color:black;
-    border: 1.5px solid black;
-    padding:7px 7px;
-    text-decoration: none;
-    font-family: "Candara";
-    font-size: 20px;
-    float: left;
 
-}
-
-.menu:hover, replay.hover {
+.menu:hover, replay.hover, close:hover {
     color: black;
     text-decoration: none;
     cursor: pointer;
