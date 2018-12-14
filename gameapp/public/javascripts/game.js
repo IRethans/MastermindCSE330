@@ -5,10 +5,6 @@ var playfield_id = "";
 var cb_clicked = false;
 var guess = ["", "", "", ""]; 
 
-//if you click on a colored ball and then click on another colored ball, opacity should return to 1;
-//colored balls shift to left when removed;
-//if you put a colored ball on top of another ball in the playfield, the ball disappears.
-
 function makeCode() {
     colors = ['wit', 'lb', 'db', 'roze', 'paars', 'rood']
     colorcode = [];
@@ -35,6 +31,9 @@ colorcode = shuffle(colors);
 var code = makeCode();
 
 $(".cb img").on("click", function (event) {
+    if(cb_clicked){
+        document.getElementById(cb_id).style.opacity = 1;
+    }
     cb_id = $(this).attr('id');
     cb_source = $(this).attr('src');
     cb_clicked = true;
@@ -50,7 +49,7 @@ for (var i = 0; i < abcd.length; i++) {
 
     $(letter).on("click", function () {
         playfield_id = $(this).attr('id');
-
+  
         if (cb_clicked) {
             add_cb(playfield_id);
         }
@@ -75,6 +74,7 @@ function remove_cb(playfield_id) {
         document.getElementById(guess[index]).style.opacity = 1;
         guess[index] = "";
         cb_clicked = false;
+        cb_id = "";
     }
 }
 
@@ -83,6 +83,9 @@ function add_cb(playfield_id) {
         document.getElementById(playfield_id).firstElementChild.setAttribute("src", cb_source);
         document.getElementById(cb_id).style.display = "none";
         var index = getclassindex(playfield_id);
+        if (guess[index] !== ""){
+        lightup(index);
+        }
         guess[index] = cb_id;
         cb_clicked = false;
     }
@@ -124,8 +127,7 @@ function full_event(){
     console.log(code);
     
     for (var i=0; i<guess.length; i++){
-    document.getElementById(guess[i]).style.opacity = 1;
-    document.getElementById(guess[i]).style.display = "block";
+    lightup(i);
     }
 
     for (var i=0; i<guess.length; i++){
@@ -165,6 +167,10 @@ function check_code(){
     return correctplace;
 }
 
+function lightup(index){
+    document.getElementById(guess[index]).style.opacity = 1;
+    document.getElementById(guess[index]).style.display = "block";
+}
 
 function checkCorrect(){
     var correct = 0;
