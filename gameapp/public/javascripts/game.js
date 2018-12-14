@@ -30,7 +30,7 @@ colorcode = shuffle(colors);
 
 var code = makeCode();
 
-$(".cb img").on("click", function (event) {
+$("#cl.cb img").on("click", function (event) {
     if(cb_clicked){
         document.getElementById(cb_id).style.opacity = 1;
     }
