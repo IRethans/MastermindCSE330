@@ -4,7 +4,6 @@ var cb_source = "";
 var playfield_id = "";
 var cb_clicked = false;
 var guess = ["", "", "", ""]; 
-var socket;
 
 function makeCode() {
     colors = ['wit', 'lb', 'db', 'roze', 'paars', 'rood']
@@ -76,7 +75,7 @@ function remove_cb(playfield_id) {
         guess[index] = "";
         cb_clicked = false;
         cb_id = "";
-    }
+    } 
 }
 
 function add_cb(playfield_id) {
@@ -202,27 +201,3 @@ function win_lose(win_lose){
     loseScreen.style.display = "block";
 }
 
-
-(function setup(){
-    socket = new WebSocket("ws://localhost:3000");
-    
-    socket.onmessage = function (event) {
-        var message = JSON.parse(event);
-        
-        
-    };
-  
-    socket.onopen = function(){
-      //  socket.send("{}");
-    };
-    
-    //server sends a close event only if the game was aborted from some side
-    socket.onclose = function(){
-        if(gs.whoWon()==null){
-            sb.setStatus(Status["aborted"]);
-        }
-    };
-  
-    socket.onerror = function(){  
-    };
-  })(); //execute immediately
