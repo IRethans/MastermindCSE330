@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/game', function(req, res) {
+router.get('/play', function(req, res) {
   res.sendFile("game.html", {root: "./public"});
 });
 
