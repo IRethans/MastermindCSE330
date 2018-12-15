@@ -124,7 +124,6 @@ function check_full(){
 
 function full_event(){
     var correct = check_code();
-    socket.send(JSON.stringify(guess));
 
     console.log(code);
     
