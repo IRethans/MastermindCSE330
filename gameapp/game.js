@@ -1,4 +1,4 @@
-function game(gameID) {
+var game = function(gameID) {
     this.playerA = null;
     this.playerB = null;
     this.id = gameID;
@@ -7,15 +7,17 @@ function game(gameID) {
 };
 
 game.prototype.hasTwoConnectedPlayers = function () {
-    return playerA != null && playerB != null;
+    return this.playerA != null && this.playerB != null;
 };
 
 game.prototype.addPlayer = function (p) {
-    if(playerA == null){
-        playerA = p;
+    if(this.playerA == null){
+        this.playerA = p;
+        return "A";
     }
-    else if(playerB == null){
-        playerB = p;
+    else if(this.playerB == null){
+        this.playerB = p;
+        return "B";
     }
 };
 
@@ -50,7 +52,7 @@ function checkAlmostCorrect(guess) {
 }
 
 
-game.prototype.generateCode = function () {
+function generateCode() {
         var colors = ['wit', 'lb', 'db', 'roze', 'paars', 'rood']
         var colorcode = [];
     
