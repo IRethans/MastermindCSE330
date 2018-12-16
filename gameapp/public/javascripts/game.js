@@ -123,10 +123,8 @@ function check_full(){
 }
 
 function full_event(){
-    var correct = check_code();
-
-    console.log(code);
-    
+    socket.send(JSON.stringify(guess));
+     
     for (var i=0; i<guess.length; i++){
     lightup(i);
     }
@@ -135,16 +133,14 @@ function full_event(){
         guess[i] = "";
     }
 
-    if (correct === 4){
-        win_lose("won");
-    }
+ countline--;
 
-    countline--;
-
-    if (countline === 0 ){
-        win_lose("lost");
-    }
+   // if (countline === 0 ){
+   //     win_lose("lost");
+    //}
 }
+
+
 
 function check_code(){
     var correctplace = checkCorrect();
@@ -195,6 +191,27 @@ function checkAlmostCorrect() {
     return almostCorrect;
 }
 
+function showResult(result){
+    var correctplace = result[0];
+    var correctcolor = result[1];
+    var tracker = 1;
+
+    for (var i=1; i<=correctplace; i++){
+        var id = "check"+countline+"."+i+"l";
+        document.getElementById(id).firstElementChild.setAttribute("src", "images/small-black.png");
+        document.getElementById(id).firstElementChild.style.display = "block";
+        tracker++;
+    }
+
+    for (var n=0; n<correctcolor; n++){
+        var id2 = "check"+countline+"."+tracker+"l";
+        document.getElementById(id2).firstElementChild.setAttribute("src", "images/small-white.png");
+        document.getElementById(id2).firstElementChild.style.display = "block";
+        tracker++;
+    } 
+  
+}
+
 
 function win_lose(win_lose){
     document.getElementById("text").innerHTML = "You " + win_lose;
@@ -205,21 +222,18 @@ function win_lose(win_lose){
 (function setup(){
     socket = new WebSocket("ws://localhost:3000");
     
-    socket.onmessage = function (event) {
-        var message = JSON.parse(event);
-        
-        
+    socket.onmessage = function (JSONresult) {
+        var result = JSON.parse(JSONresult);     
+        showResult(result);
     };
   
     socket.onopen = function(){
-      //  socket.send("{}");
+      console.log("connection opened");
     };
     
     //server sends a close event only if the game was aborted from some side
     socket.onclose = function(){
-        if(gs.whoWon()==null){
-            sb.setStatus(Status["aborted"]);
-        }
+       console.log("connection closed");
     };
   
     socket.onerror = function(){  

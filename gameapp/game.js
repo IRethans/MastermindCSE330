@@ -21,7 +21,7 @@ game.prototype.addPlayer = function (p) {
     }
 };
 
-game.prototype.guessCode = function(guess){
+game.prototype.getResult = function(guess){
     var correctplace = checkCorrect(guess);
     var correctcolor = checkAlmostCorrect(guess)-correctplace;
 
