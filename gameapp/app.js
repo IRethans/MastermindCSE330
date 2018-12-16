@@ -56,8 +56,9 @@ wss.on("connection", function connection(ws) {
     ws.on("message", function(JSONguess){
         let gameObj = websockets[con.id];
         var guess = JSON.parse(JSONguess);
+        console.log(guess);
         result = gameObj.getResult(guess);
-        
+
         var resYou = {
             "type" : "you",
             "result" : result

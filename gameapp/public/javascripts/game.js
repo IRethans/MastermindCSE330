@@ -222,9 +222,12 @@ function win_lose(win_lose){
 (function setup(){
     socket = new WebSocket("ws://localhost:3000");
     
-    socket.onmessage = function (JSONresult) {
-        var result = JSON.parse(JSONresult);     
+    socket.onmessage = function (message) {
+        console.log(message);
+        if (message.data!="Welcome to this game" && message.data!="A" && message.data!="B"){
+        var result = JSON.parse(message);     
         showResult(result);
+        }
     };
   
     socket.onopen = function(){
