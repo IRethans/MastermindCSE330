@@ -11,8 +11,8 @@ var app = express();
 
 app.use(express.static(__dirname + "/public"));
 app.get("/play", index);
-app.get("/", (req, res) => {
-    res.render("splash.ejs", { gamesPlayed: gameStatus.gamesPlayed });
+app.get("/", (req, res) =>{
+  res.render("splash.ejs", {gamesPlayed: gameStatus.gamesPlayed});
 });
 
 
@@ -30,25 +30,25 @@ wss.on("connection", function connection(ws) {
     console.log("connection established");
     ws.send("Welcome to this game");
 
-    if (currentGame.hasTwoConnectedPlayers) {
-        gamecount++;
-        currentGame = new new game(gamecount);
-    }
+if(currentGame.hasTwoConnectedPlayers){
+    gamecount++;
+    currentGame = new game(gamecount);
+}
+
+  
+
+  let con = ws; 
+  con.id = connectionID++;
+  let playerType = currentGame.addPlayer(con);
+  websockets[con.id] = currentGame;
 
 
 
-    let con = ws;
-    con.id = connectionID++;
-    let playerType = currentGame.addPlayer(con);
-    websockets[con.id] = currentGame;
+  console.log("Player %s placed in game %s as %s", con.id, currentGame.id, playerType);
 
-
-
-    console.log("Player %s placed in game %s as %s", con.id, currentGame.id, playerType);
-
-    if (currentGame.hasTwoConnectedPlayers()) {
-        currentGame = new Game(gameStatus.gamesPlayed++);
-    }
+  if (currentGame.hasTwoConnectedPlayers()) {
+    currentGame = new Game(gameStatus.gamesPlayed++);
+}
 
 });
 
