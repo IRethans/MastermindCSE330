@@ -1,4 +1,5 @@
 var fullscreen = false;
+var inst = false;
 document.body.onkeydown = function (e) {
   var elem = document.documentElement;
   if (e.key === "f"){
@@ -32,3 +33,16 @@ document.body.onkeyup = function (e) {
   }
 }
 }
+
+document.getElementById("instr").onclick = function(){
+  if (!inst){
+  document.getElementById("instructies").style.display = "block";
+  document.getElementById("logo").innerHTML = "<img src = 'images/logoinv.png'>"
+  inst = true;
+  }
+  else {
+  document.getElementById("instructies").style.display = "none";
+  document.getElementById("logo").innerHTML = "<img src = 'images/logo.png'>"
+  inst = false;
+  } 
+};

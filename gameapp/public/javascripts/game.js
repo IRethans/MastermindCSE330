@@ -9,6 +9,7 @@ var socket;
 var sound = true;
 var info = document.getElementById("info");
 var fullscreen = false;
+var inst = false;
 
 
 $("#cl.cb img").on("click", function (event) {
@@ -39,6 +40,20 @@ $(document).keyup(function(e) {
             closeFullscreen();
         }
    }
+});
+
+
+$("#instr").on("click", function () {
+    if (!inst){
+    document.getElementById("instructies").style.display = "block";
+    document.getElementById("logo").innerHTML = "<img src = 'images/logoinv.png'>"
+    inst = true;
+    }
+    else {
+    document.getElementById("instructies").style.display = "none";
+    document.getElementById("logo").innerHTML = "<img src = 'images/logo.png'>"
+    inst = false;
+    } 
 });
 
 function openFullscreen(elem) {

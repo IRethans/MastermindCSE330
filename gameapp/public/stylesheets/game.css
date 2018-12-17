@@ -248,6 +248,14 @@ ul.statistics li:last-child
 }
 
 .buttons li:last-child:hover::before{
+    content: "click to enter fullscreen";
+    color:white;
+    position: absolute;
+    top: 60px;
+    right: 30px;
+}
+
+.buttons li:nth-child(2):hover::before{
     content: "click to (un)mute sound";
     color:white;
     position: absolute;
@@ -368,3 +376,15 @@ ul.statistics li:last-child
     clear: both;
     color:white;
   }
+
+  #instructies{
+    display:none;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 10;
+    position: absolute;
+    color: white;
+    top: 10vh;
+    right: 33vw
+
+}

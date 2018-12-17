@@ -180,3 +180,14 @@ ul.statistics li
     display:inline-block;
 }
 
+#instructies{
+    display:none;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 10;
+    position: absolute;
+    color: white;
+    top: 20vh;
+    right: 3vw
+
+}
