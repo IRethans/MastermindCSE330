@@ -197,8 +197,8 @@ function popup(text) {
             countline--;
             countlineopp--;
             startTimer();
-
-
+        } else if(message.data == "closeOpp"){
+            info.innerText = "Oops, connection with opponent is lost, please reload page";
         } else {
             var objresult = JSON.parse(message.data);
             messageSound.play();
@@ -237,7 +237,7 @@ function popup(text) {
 
     //server sends a close event only if the game was aborted from some side
     socket.onclose = function () {
-        info.innerHTML = "Connection is closed, please try to reload the page";
+        info.innerHTML = "Oops your connection is closed, please try to reload the page";
     };
 
 
