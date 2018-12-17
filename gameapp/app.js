@@ -111,6 +111,17 @@ wss.on("connection", function connection(ws) {
         }
     });
 
+    ws.on("close", function(){
+        let gameObj = websockets[con.id];
+        if (gameObj.hasTwoConnectedPlayers) {
+            if (gameObj.playerA == con){
+                gameObj.playerB.send("closeOpp");
+            } else {
+                gameObj.playerA.send("closeOpp");
+            }
+         }
+    })
+
 });
 
 

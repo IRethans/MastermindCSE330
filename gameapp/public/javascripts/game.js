@@ -8,6 +8,7 @@ var guess = ["", "", "", ""];
 var socket;
 var sound = true;
 var info = document.getElementById("info");
+var fullscreen = false;
 
 
 $("#cl.cb img").on("click", function (event) {
@@ -20,6 +21,37 @@ $("#cl.cb img").on("click", function (event) {
     document.getElementById(cb_id).style.opacity = 0.5;
 });
 
+$("#fulls").on("click", function () {
+    var elem = document.documentElement;
+    if (!fullscreen){
+        openFullscreen(elem);
+        fullscreen = true;
+    } else {
+        closeFullscreen(elem);
+        fullscreen = false;
+    }
+});
+
+$(document).keyup(function(e) {
+    if (e.key === "Escape") { 
+        if (fullscreen){
+            fullscreen = false;
+            closeFullscreen();
+        }
+   }
+});
+
+function openFullscreen(elem) {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    }
+  }
+
+  function closeFullscreen(elem) {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+  }
 
 
 var abcd = ["A", "B", "C", "D"];

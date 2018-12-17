@@ -1,20 +1,34 @@
-/* // Get the modal
-var popup = document.getElementById('info');
-
-// Get the button that opens the modal
-var btn = document.getElementById("infoText");
-
-// When the user clicks on the button, open the modal 
-btn.onclick = function() {
-  popup.style.display = "block";
+var fullscreen = false;
+document.body.onkeydown = function (e) {
+  var elem = document.documentElement;
+  if (e.key === "f"){
+  if (!fullscreen){
+      openFullscreen(elem);
+      fullscreen = true;
+  } else {
+      closeFullscreen(elem);
+      fullscreen = false;
+  }
+}
 }
 
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == popup) {
-    popup.style.display = "none";
+function openFullscreen(elem) {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
   }
-} */
+}
 
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  }
+}
 
+document.body.onkeyup = function (e) {
+  if (e.key === "Escape"){
+  if (fullscreen){
+      closeFullscreen();
+      fullscreen = false;
+  }
+}
+}

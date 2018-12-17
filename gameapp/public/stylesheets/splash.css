@@ -63,6 +63,22 @@ list-style: none;
     cursor: pointer;
 }
 
+.buttons li:last-child:hover::before{
+    content: "press f to open fullscreen";
+    color:white;
+    position: absolute;
+    top: 60px;
+    right: 30px;
+}
+
+.buttons li:first-child:hover::before{
+    content: "click to see instructions";
+    color:white;
+    position: absolute;
+    top: 60px;
+    right: 40px;
+}
+
 .splash-image
 {
     clear:both;

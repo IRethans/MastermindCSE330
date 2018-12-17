@@ -24,7 +24,7 @@ body
 }
 
 @media screen and (max-width : 1224px) {
-    .playfield, .logo, div ul.statistics, .cb, .buttons, section,p#info {
+    .playfield, .logo, div ul.statistics, .cb, div.buttons, section,p#info {
         display: none;
     }
     .alert {
@@ -247,19 +247,43 @@ ul.statistics li:last-child
     border-bottom: 1.5px solid white;
 }
 
-.buttons ul li:last-child
-{
-  float:right;
-  position:relative;
-  right: 50px;
+.buttons li:last-child:hover::before{
+    content: "click to (un)mute sound";
+    color:white;
+    position: absolute;
+    top: 60px;
+    right: 30px;
+}
+
+.buttons li:first-child:hover::before{
+    content: "click to see instructions";
+    color:white;
+    position: absolute;
+    top: 60px;
+    right: 150px;
+}
+
+.buttons{
+  display: block;
+  width:30vw;
+  position:fixed;
+  right: 30vw;
+ 
+}
+
+.buttons ul li{
+  display: inline-block; 
 }
 
 .buttons ul li:first-child
 {
-  float: left;
-  position:relative;
-  right: -50px;
+  float:left;
+}
 
+.buttons ul li:last-child
+{
+  float:left;
+ 
 }
 
 .buttons li
@@ -274,7 +298,7 @@ ul.statistics li:last-child
     text-decoration: none;
     padding: 5px;
     cursor: pointer;
-
+    margin-left: 30px;
 }
 
 
