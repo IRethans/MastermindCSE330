@@ -1,38 +1,17 @@
-var countline = 12;
+var countline = 13;
+var countlineopp = 13;
 var cb_id = "";
 var cb_source = "";
 var playfield_id = "";
 var cb_clicked = false;
-var guess = ["", "", "", ""]; 
+var guess = ["", "", "", ""];
 var socket;
+var sound = true;
+var info = document.getElementById("info");
 
-function makeCode() {
-    colors = ['wit', 'lb', 'db', 'roze', 'paars', 'rood']
-    colorcode = [];
-
-
-    function shuffle(colors) {
-        var j, x, i;
-        for (i = colors.length - 1; i > 0; i--) {
-            j = Math.floor(Math.random() * (i + 1));
-            x = colors[i];
-            colors[i] = colors[j];
-            colors[j] = x;
-        }
-        return colors;
-    }
-
-colorcode = shuffle(colors);
-
-    //colorcode = ['wit', 'lb', 'db', 'roze'];
-
-    return colorcode;
-}
-
-var code = makeCode();
 
 $("#cl.cb img").on("click", function (event) {
-    if(cb_clicked){
+    if (cb_clicked) {
         document.getElementById(cb_id).style.opacity = 1;
     }
     cb_id = $(this).attr('id');
@@ -43,24 +22,24 @@ $("#cl.cb img").on("click", function (event) {
 
 
 
- var abcd = ["A", "B", "C", "D"];
+var abcd = ["A", "B", "C", "D"];
 
 for (var i = 0; i < abcd.length; i++) {
     var letter = "." + abcd[i];
 
     $(letter).on("click", function () {
         playfield_id = $(this).attr('id');
-  
+
         if (cb_clicked) {
             add_cb(playfield_id);
         }
         else {
             remove_cb(playfield_id)
         }
-        
+
         var full = check_full();
-        
-        if (full){
+
+        if (full) {
             full_event();
         }
 
@@ -76,7 +55,7 @@ function remove_cb(playfield_id) {
         guess[index] = "";
         cb_clicked = false;
         cb_id = "";
-    } 
+    }
 }
 
 function add_cb(playfield_id) {
@@ -84,8 +63,8 @@ function add_cb(playfield_id) {
         document.getElementById(playfield_id).firstElementChild.setAttribute("src", cb_source);
         document.getElementById(cb_id).style.display = "none";
         var index = getclassindex(playfield_id);
-        if (guess[index] !== ""){
-        lightup(index);
+        if (guess[index] !== "") {
+            lightup(index);
         }
         guess[index] = cb_id;
         cb_clicked = false;
@@ -103,142 +82,169 @@ function checkline() {
     }
 }
 
-function check_left(playfield_id){
-    return playfield_id.charAt(playfield_id.length-2) === "l";
+function check_left(playfield_id) {
+    return playfield_id.charAt(playfield_id.length - 2) === "l";
 }
 
 function getclassindex(playfield_id) {
     var cb_class = document.getElementById(playfield_id).getAttribute("class");
-        var index = abcd.indexOf(cb_class);
+    var index = abcd.indexOf(cb_class);
     return index;
 }
 
-function check_full(){
-    for (var i=0; i<guess.length; i++){
-        if (guess[i]===""){
+function check_full() {
+    for (var i = 0; i < guess.length; i++) {
+        if (guess[i] === "") {
             return false;
         }
     }
     return true;
 }
 
-function full_event(){
+function full_event() {
     socket.send(JSON.stringify(guess));
-     
-    for (var i=0; i<guess.length; i++){
-    lightup(i);
+    checkSound.play();
+
+    for (var i = 0; i < guess.length; i++) {
+        lightup(i);
     }
 
-    for (var i=0; i<guess.length; i++){
+    for (var i = 0; i < guess.length; i++) {
         guess[i] = "";
     }
-
- countline--;
-
-   // if (countline === 0 ){
-   //     win_lose("lost");
-    //}
+    
 }
 
-
-
-function check_code(){
-    var correctplace = checkCorrect();
-    var correctcolor = checkAlmostCorrect()-correctplace;
-    var tracker = 1;
-
-    for (var i=1; i<=correctplace; i++){
-        var id = "check"+countline+"."+i+"l";
-        document.getElementById(id).firstElementChild.setAttribute("src", "images/small-black.png");
-        document.getElementById(id).firstElementChild.style.display = "block";
-        tracker++;
-    }
-
-    for (var n=0; n<correctcolor; n++){
-        var id2 = "check"+countline+"."+tracker+"l";
-        document.getElementById(id2).firstElementChild.setAttribute("src", "images/small-white.png");
-        document.getElementById(id2).firstElementChild.style.display = "block";
-        tracker++;
-    }
-
-    return correctplace;
-}
-
-function lightup(index){
+function lightup(index) {
     document.getElementById(guess[index]).style.opacity = 1;
     document.getElementById(guess[index]).style.display = "block";
 }
 
-function checkCorrect(){
-    var correct = 0;
-    for (m = 0; m < 4; m++) {
-        if (guess[m] === code[m]) {
-            correct++;
-        }
-    }
-    return correct;
-}
 
-function checkAlmostCorrect() {
-    var almostCorrect = 0;
-
-    for(i=0; i<4; i++){
-        index = code.indexOf(guess[i])
-        if(index < 4){
-            almostCorrect++;
-        }
-    }
-    return almostCorrect;
-}
-
-function showResult(result){
+function showResult(result, side, line) {
     var correctplace = result[0];
     var correctcolor = result[1];
     var tracker = 1;
 
-    for (var i=1; i<=correctplace; i++){
-        var id = "check"+countline+"."+i+"l";
+    for (var i = 1; i <= correctplace; i++) {
+        var id = "check" + line + "." + i + side;
         document.getElementById(id).firstElementChild.setAttribute("src", "images/small-black.png");
         document.getElementById(id).firstElementChild.style.display = "block";
         tracker++;
     }
 
-    for (var n=0; n<correctcolor; n++){
-        var id2 = "check"+countline+"."+tracker+"l";
+    for (var n = 0; n < correctcolor; n++) {
+        var id2 = "check" + line + "." + tracker + side;
         document.getElementById(id2).firstElementChild.setAttribute("src", "images/small-white.png");
         document.getElementById(id2).firstElementChild.style.display = "block";
         tracker++;
-    } 
-  
+    }
+
 }
 
 
-function win_lose(win_lose){
-    document.getElementById("text").innerHTML = "You " + win_lose;
-    var loseScreen = document.getElementById('loseScreen');
-    loseScreen.style.display = "block";
+function popup(text) {
+    document.getElementById("text").innerHTML = text;
+    var popup = document.getElementById('popUpScreen');
+    popup.style.display = "block";
 }
 
-(function setup(){
+(function setup() {
     socket = new WebSocket("ws://localhost:3000");
-    
+
     socket.onmessage = function (message) {
         console.log(message);
-        if (message.data!="Welcome to this game" && message.data!="A" && message.data!="B"){
-        var result = JSON.parse(message);     
-        showResult(result);
+
+        if (message.data == "A") {
+            info.innerText = "waiting for opponent...";
+        } else if (message.data == "start") {
+            info.innerText = "Play!";
+            setTimeout(function(){ 
+            info.innerText = "";
+            }, 5000);
+            countline--;
+            countlineopp--;
+            startTimer();
+
+
+        } else {
+            var objresult = JSON.parse(message.data);
+            messageSound.play();
+
+            if (objresult.type == "you") {
+                showResult(objresult.result, "l", countline);
+                if (objresult.winner) {
+                    stopTimer();
+                    winmessage();
+                } else {
+                    countline--;
+                    document.getElementById("countline").innerText = countline;
+                    if(countline == 0){
+                        socket.send("lost");
+                    }
+                }
+            } else {
+                showResult(objresult.result, "r", countlineopp);
+                if (objresult.winner) {
+                    stopTimer();
+                    losemessage();
+                } else {
+                    for (let i = 0; i < 4; i++) {
+                        let id = "line" + countlineopp + "r" + abcd[i];
+                        document.getElementById(id).firstElementChild.setAttribute("src", "/images/game-ball-inserted.png");
+                    }
+                    countlineopp--;
+                }
+            }
         }
+    }
+
+    socket.onopen = function () {
+        console.log("connection opened");
     };
-  
-    socket.onopen = function(){
-      console.log("connection opened");
-    };
-    
+
     //server sends a close event only if the game was aborted from some side
-    socket.onclose = function(){
-       console.log("connection closed");
+    socket.onclose = function () {
+        info.innerHTML = "Connection is closed, please try to reload the page";
     };
-  
-    socket.onerror = function(){  
+
+
+    socket.onerror = function () {
+        stopTimer();
     };
-  })(); //execute immediately
+})(); //execute immediately
+
+
+function startTimer() {
+    var seconds = 0;
+    timer = setInterval(function () {
+        seconds++;
+        var sec = seconds % 60;
+        var minutes = parseInt(seconds / 60);
+        if (sec < 10){
+        document.getElementById("seconds").innerText = "0" + sec;
+        } else {
+        document.getElementById("seconds").innerText = seconds % 60; 
+        }
+
+        if(minutes<10){
+        document.getElementById("minutes").innerText = "0" + minutes;
+        } else {
+        document.getElementById("minutes").innerText = minutes;  
+        }
+
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timer);
+}  
+
+function winmessage(){
+    info.innerHTML = "YOU WIN! CONGRATS!";
+}
+
+function losemessage(){
+    info.innerHTML = "YOU LOSE";
+}
+

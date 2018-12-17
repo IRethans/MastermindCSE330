@@ -1,4 +1,4 @@
-// Get the modal
+/* // Get the modal
 var popup = document.getElementById('info');
 
 // Get the button that opens the modal
@@ -15,5 +15,6 @@ window.onclick = function(event) {
   if (event.target == popup) {
     popup.style.display = "none";
   }
-}
+} */
+
 

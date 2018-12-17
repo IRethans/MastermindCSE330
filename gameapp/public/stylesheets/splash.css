@@ -39,7 +39,8 @@ list-style: none;
     width: 35px;
     height: auto;
     text-decoration: none;
-    padding: 5px
+    padding: 5px;
+    cursor: pointer;
 }
 
 .splash-image

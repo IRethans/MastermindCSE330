@@ -10,8 +10,8 @@
 <body>
     <div class="buttons">
         <ul class="buttons-list">
-            <li><a href=""><img src="images/instructies.png"></a></li>
-            <li><a href=""><img src="images/geluid.png"> </a></li>
+            <li><img id="instr" src="images/instructies.png"></li>
+            <li><img id="sound" src="images/geluid.png"></li>
         </ul>
     </div>
 
@@ -30,14 +30,22 @@
 
                 <div>
                     <ul class="statistics">
-                        <li id="p">  Games played: <%= gamesPlayed %> </li>
-                            <li id="o">Ongoing games:</li>
-                                <li id="g">Games played:</li>
+                        <li id="p"> Games played:
+                            <%= gamesPlayed %>
+                        </li>
+                        <li id="o">Ongoing games:</li>
+                        <li id="g">Games played:</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 
+    <script src="javascripts/splash.js"></script>
+    <script src="javascripts/sound.js"></script>
 
-                    
 </body>
 
 </html>

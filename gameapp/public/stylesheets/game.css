@@ -182,9 +182,13 @@ ul.statistics
     height: auto;
 }
 
+.statistics li span:first-child{
+    margin-left: 20px;
+}
+
 ul.statistics li
 {
-    padding: 15px 55px;
+    padding: 15px 45px;
 }
 
 ul.statistics li:first-child
@@ -224,7 +228,8 @@ ul.statistics li:last-child
     width: 35px;
     height: auto;
     text-decoration: none;
-    padding: 5px
+    padding: 5px;
+    cursor: pointer;
 
 }
 
@@ -279,3 +284,19 @@ ul.statistics li:last-child
     text-decoration: none;
     cursor: pointer;
 }
+
+.audio {
+    display: none;
+}
+
+#info{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 30%;
+    font-family: "Candara";
+    font-size: 25px;
+    clear: both;
+    color:white;
+  }

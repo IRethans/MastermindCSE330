@@ -22,14 +22,13 @@ game.prototype.addPlayer = function (p) {
 };
 
 game.prototype.getResult = function(guess){
-    var correctplace = checkCorrect(guess);
-    var correctcolor = checkAlmostCorrect(guess)-correctplace;
+    var correctplace = this.checkCorrect(guess);
+    var correctcolor = this.checkAlmostCorrect(guess)-correctplace;
 
     return [correctplace, correctcolor];
 
 }
-
-function checkCorrect(guess){
+game.prototype.checkCorrect = function(guess){
     var correct = 0;
     for (m = 0; m < 4; m++) {
         if (guess[m] === this.code[m]) {
@@ -39,7 +38,7 @@ function checkCorrect(guess){
     return correct;
 }
 
-function checkAlmostCorrect(guess) {
+game.prototype.checkAlmostCorrect = function(guess) {
     var almostCorrect = 0;
 
     for(i=0; i<4; i++){

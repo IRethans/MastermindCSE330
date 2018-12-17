@@ -11,8 +11,8 @@ var app = express();
 
 app.use(express.static(__dirname + "/public"));
 app.get("/play", index);
-app.get("/", (req, res) =>{
-  res.render("splash.ejs", {gamesPlayed: gameStatus.gamesPlayed});
+app.get("/", (req, res) => {
+    res.render("splash.ejs", { gamesPlayed: gameStatus.gamesPlayed });
 });
 
 
@@ -28,57 +28,86 @@ var currentGame = new game(gamecount);
 
 wss.on("connection", function connection(ws) {
     console.log("connection established");
-    ws.send("Welcome to this game");
 
     if (currentGame.hasTwoConnectedPlayers()) {
-    gamecount++;
+        gamecount++;
         currentGame = new game(gamecount);
-}
+    }
 
-  let con = ws; 
-  con.id = connectionID++;
-  let playerType = currentGame.addPlayer(con);
-  websockets[con.id] = currentGame;
+    let con = ws;
+    con.id = connectionID++;
+    let playerType = currentGame.addPlayer(con);
+    websockets[con.id] = currentGame;
 
-  if (playerType == "A"){
-      con.send("A");
-  } else {
-      con.send("B");
-  }
+    console.log("Player %s placed in game %s as %s", con.id, currentGame.id, playerType);
 
-  console.log("Player %s placed in game %s as %s", con.id, currentGame.id, playerType);
-
-  if (currentGame.hasTwoConnectedPlayers()) {
-    currentGame.playerA.send("Starting game player A");
-    currentGame.playerB.send("Starting game player B");
-
-}
-    ws.on("message", function(JSONguess){
+    if (currentGame.hasTwoConnectedPlayers()) {
+        currentGame.playerA.send("start");
+        currentGame.playerB.send("start");
+        gameStatus.gamesPlayed++;
+    } else {
+        con.send("A");
+    }
+    ws.on("message", function (JSONguess) {
         let gameObj = websockets[con.id];
-        var guess = JSON.parse(JSONguess);
-        console.log(guess);
-        result = gameObj.getResult(guess);
+        if (gameObj.hasTwoConnectedPlayers()) {
+            if (JSONguess == "lost") {
+                winner = true;
 
-        var resYou = {
-            "type" : "you",
-            "result" : result
-        }
-        var resOpp = {
-            "type" : "opponent",
-            "result" : result
-        }
+                var resYou = {
+                    "type": "you",
+                    "result": result,
+                    "winner": winner
+                }
+                var resOpp = {
+                    "type": "opponent",
+                    "result": result,
+                    "winner": winner
+                }
 
-        if (gameObj.playerA == con){
-            con.send(JSON.stringify(resYou))
-            gameObj.playerB.send(JSON.stringify(resOpp))
-        } else {
-            con.send(JSON.stringify(resYou))
-            gameObj.playerA.send(JSON.stringify(resOpp))
+                if (gameObj.playerA == con) {
+                    con.send(JSON.stringify(resOpp))
+                    gameObj.playerB.send(JSON.stringify(resYou))
+                } else {
+                    con.send(JSON.stringify(resOpp))
+                    gameObj.playerA.send(JSON.stringify(resYou))
+                }
+
+
+            } else {
+                let guess = JSON.parse(JSONguess);
+                console.log(guess);
+                let result = gameObj.getResult(guess);
+                let winner = false;
+                if (result[0] == 4) {
+                    winner = true;
+                }
+
+                var resYou = {
+                    "type": "you",
+                    "result": result,
+                    "winner": winner
+                }
+                var resOpp = {
+                    "type": "opponent",
+                    "result": result,
+                    "winner": winner
+                }
+
+
+
+                if (gameObj.playerA == con) {
+                    con.send(JSON.stringify(resYou))
+                    gameObj.playerB.send(JSON.stringify(resOpp))
+                } else {
+                    con.send(JSON.stringify(resYou))
+                    gameObj.playerA.send(JSON.stringify(resOpp))
+                }
+            }
+
         }
-        
-        
-        
     });
+
 });
 
 
