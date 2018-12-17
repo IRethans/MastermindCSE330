@@ -12,3 +12,12 @@ the ball is placed at that location and the blurred ball dissapears.
 4. If you click on the information button, a pop-up instruction window appears.
 5. After a game is finished show the player if they won or lost and have two buttons: one for play again and another for quit.
 	
+We are using the basic constructor for all of the game objects.
+This is for us the more easy way to implement everything as we have no prior experience.
+
+
+The messages that need to be sent between the server and the clients:
+There are two players; start the game.
+The guess of the player gets sent to the server to check.
+The server sends the almost correct and correct values to BOTH players.
+The players can continue.
