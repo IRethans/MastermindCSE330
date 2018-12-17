@@ -8,6 +8,9 @@
 
 
 <body>
+    <div class=alert>
+        <p id=alerttext>Please resize your screen to a minimun width of 1224 px</p>
+    </div>
     <div class="buttons">
         <ul class="buttons-list">
             <li><img id="instr" src="images/instructies.png"></li>
@@ -31,10 +34,14 @@
                 <div>
                     <ul class="statistics">
                         <li id="p"> Games played:
-                            <%= gamesPlayed %>
+                            <%= gamesInitialized %>
                         </li>
-                        <li id="o">Ongoing games:</li>
-                        <li id="g">Games played:</li>
+                        <li id="o"> Games completed:
+                            <%= gamesCompleted %>
+                        </li>
+                        <li id="g">Guesses made:
+                            <%= guessesMade %>
+                        </li>
                     </ul>
                 </div>
             </div>

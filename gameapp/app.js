@@ -12,7 +12,7 @@ var app = express();
 app.use(express.static(__dirname + "/public"));
 app.get("/play", index);
 app.get("/", (req, res) => {
-    res.render("splash.ejs", { gamesPlayed: gameStatus.gamesPlayed });
+    res.render("splash.ejs", { gamesInitialized: gameStatus.gamesInitialized, gamesCompleted: gameStatus.gamesCompleted, guessesMade: gameStatus.guessesMade });
 });
 
 
@@ -44,7 +44,7 @@ wss.on("connection", function connection(ws) {
     if (currentGame.hasTwoConnectedPlayers()) {
         currentGame.playerA.send("start");
         currentGame.playerB.send("start");
-        gameStatus.gamesPlayed++;
+        gameStatus.gamesInitialized++;
     } else {
         con.send("A");
     }
@@ -53,6 +53,7 @@ wss.on("connection", function connection(ws) {
         if (gameObj.hasTwoConnectedPlayers()) {
             if (JSONguess == "lost") {
                 winner = true;
+                gameStatus.gamesCompleted++;
 
                 var resYou = {
                     "type": "you",
@@ -75,12 +76,14 @@ wss.on("connection", function connection(ws) {
 
 
             } else {
+                gameStatus.guessesMade++;
                 let guess = JSON.parse(JSONguess);
                 console.log(guess);
                 let result = gameObj.getResult(guess);
                 let winner = false;
                 if (result[0] == 4) {
                     winner = true;
+                    gameStatus.gamesCompleted++;
                 }
 
                 var resYou = {

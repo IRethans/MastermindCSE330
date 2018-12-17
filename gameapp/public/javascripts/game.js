@@ -112,7 +112,7 @@ function full_event() {
     for (var i = 0; i < guess.length; i++) {
         guess[i] = "";
     }
-    
+
 }
 
 function lightup(index) {
@@ -159,8 +159,8 @@ function popup(text) {
             info.innerText = "waiting for opponent...";
         } else if (message.data == "start") {
             info.innerText = "Play!";
-            setTimeout(function(){ 
-            info.innerText = "";
+            setTimeout(function () {
+                info.innerText = "";
             }, 5000);
             countline--;
             countlineopp--;
@@ -179,7 +179,7 @@ function popup(text) {
                 } else {
                     countline--;
                     document.getElementById("countline").innerText = countline;
-                    if(countline == 0){
+                    if (countline == 0) {
                         socket.send("lost");
                     }
                 }
@@ -221,16 +221,16 @@ function startTimer() {
         seconds++;
         var sec = seconds % 60;
         var minutes = parseInt(seconds / 60);
-        if (sec < 10){
-        document.getElementById("seconds").innerText = "0" + sec;
+        if (sec < 10) {
+            document.getElementById("seconds").innerText = "0" + sec;
         } else {
-        document.getElementById("seconds").innerText = seconds % 60; 
+            document.getElementById("seconds").innerText = seconds % 60;
         }
 
-        if(minutes<10){
-        document.getElementById("minutes").innerText = "0" + minutes;
+        if (minutes < 10) {
+            document.getElementById("minutes").innerText = "0" + minutes;
         } else {
-        document.getElementById("minutes").innerText = minutes;  
+            document.getElementById("minutes").innerText = minutes;
         }
 
     }, 1000);
@@ -238,13 +238,14 @@ function startTimer() {
 
 function stopTimer() {
     clearInterval(timer);
-}  
+}
 
-function winmessage(){
+function winmessage() {
     info.innerHTML = "YOU WIN! CONGRATS!";
 }
 
-function losemessage(){
+function losemessage() {
     info.innerHTML = "YOU LOSE";
 }
+
 
